@@ -1,4 +1,4 @@
-DefineConstant[ h = {0.1, Min 0, Max 1, Name "Resolution" } ];
+DefineConstant[ h = {0.3, Min 0, Max 1, Name "Resolution" } ];
 
 SetFactory("OpenCASCADE");
 
