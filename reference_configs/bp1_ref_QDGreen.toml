@@ -12,4 +12,4 @@ prefix = "./gf_bp1/"
 
 [fault_scalar_output]
 t_max = 9460800
-prefix = "/app/test/test_data/reference_results/vmax_output_QDGreen"
+prefix = "../temp_test_results/vmax_output_QDGreen"
