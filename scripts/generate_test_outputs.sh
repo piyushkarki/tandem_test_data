@@ -54,7 +54,7 @@ elif [[ "$DIM" == "3" ]]; then
   done
   for h in 0.074 0.147 0.289 0.540 0.712; do
     gmsh -3 spherical_hole.geo -setnumber h $h
-    mpirun -np 100 ${EXECUTABLE_DIR}/static spherical_hole.toml \
+    ${EXECUTABLE_DIR}/static spherical_hole.toml \
       --petsc -options_file mg_cheby.cfg >>${TEMP_TEST_RESULTS}/convergence_3D.log
   done
   rm spherical_hole.msh
