@@ -7,8 +7,11 @@ scenario = "bp1_ref"
 ref_normal = [-1, 0]
 boundary_linear = true
 
+[ts_checkpoint]
+storage_type="none"
+
 [gf_checkpoint]
-prefix = "./gf_bp1/"
+prefix = "../temp_test_results/gf_bp1/"
 
 [fault_scalar_output]
 t_max = 9460800
