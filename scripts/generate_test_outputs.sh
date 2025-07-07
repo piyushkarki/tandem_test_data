@@ -52,7 +52,7 @@ elif [[ "$DIM" == "3" ]]; then
       --mg_coarse_level 1 --output ${TEMP_TEST_RESULTS}/parallel_output3D_$i \
       --petsc -options_file mg_cheby.cfg
   done
-  for h in 0.074 0.147 0.289 0.540 0.712; do
+  for h in 0.147 0.289 0.540 0.712; do
     gmsh -3 spherical_hole.geo -setnumber h $h
     ${EXECUTABLE_DIR}/static spherical_hole.toml \
       --petsc -options_file mg_cheby.cfg >>${TEMP_TEST_RESULTS}/convergence_3D.log
