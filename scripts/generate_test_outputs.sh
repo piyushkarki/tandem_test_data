@@ -19,7 +19,7 @@ cd $REFERENCE_CONFIGS
 if [[ "$DIM" == "2" ]]; then
   gmsh -2 circular_hole.geo
   ${EXECUTABLE_DIR}/static circular_hole.toml \
-    -matrix_free yes --mg_strategy twolevel \
+    --matrix_free yes --mg_strategy twolevel \
     --mg_coarse_level 1 --output ${TEMP_TEST_RESULTS}/output2D \
     --petsc -options_file mg_cheby.cfg
   for i in 1 2 4 8; do
@@ -43,12 +43,12 @@ if [[ "$DIM" == "2" ]]; then
 elif [[ "$DIM" == "3" ]]; then
   gmsh -3 spherical_hole.geo
   ${EXECUTABLE_DIR}/static spherical_hole.toml \
-    -matrix_free yes --mg_strategy twolevel \
+    --matrix_free yes --mg_strategy twolevel \
     --mg_coarse_level 1 --output ${TEMP_TEST_RESULTS}/output3D \
     --petsc -options_file mg_cheby.cfg
   for i in 1 2 4 8; do
     mpirun --oversubscribe -n $i ${EXECUTABLE_DIR}/static spherical_hole.toml \
-      -matrix_free yes --mg_strategy twolevel \
+      --matrix_free yes --mg_strategy twolevel \
       --mg_coarse_level 1 --output ${TEMP_TEST_RESULTS}/parallel_output3D_$i \
       --petsc -options_file mg_cheby.cfg
   done
