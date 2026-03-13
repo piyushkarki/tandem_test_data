@@ -11,10 +11,14 @@ REF_DIRECTORY=${SOURCE_DIR}/test/test_data
 EXECUTABLE_DIR=${BUILD_DIR}/app
 TEMP_TEST_RESULTS=${REF_DIRECTORY}/temp_test_results
 REFERENCE_CONFIGS=${REF_DIRECTORY}/reference_configs
+REFERENCE_SUBDIR=${REFERENCE_CONFIGS}/2D
+if [[ "$DIM" == "3" ]]; then
+  REFERENCE_SUBDIR=${REFERENCE_CONFIGS}/3D
+fi
 
 mkdir -p $TEMP_TEST_RESULTS
 
-cd $REFERENCE_CONFIGS
+cd $REFERENCE_SUBDIR
 
 if [[ "$DIM" == "2" ]]; then
   gmsh -2 circular_hole.geo

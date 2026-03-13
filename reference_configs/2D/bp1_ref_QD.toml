@@ -12,4 +12,4 @@ storage_type="none"
 
 [fault_scalar_output]
 t_max = 9460800
-prefix = "../temp_test_results/vmax_output_QD"
+prefix = "../../temp_test_results/vmax_output_QD"
