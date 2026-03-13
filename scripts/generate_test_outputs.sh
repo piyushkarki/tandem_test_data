@@ -33,7 +33,6 @@ if [[ "$DIM" == "2" ]]; then
   for h in 0.0625 0.125 0.25 0.5; do
     gmsh -2 circular_hole.geo -setnumber h $h -order 9 -o circular_hole.msh
     ${EXECUTABLE_DIR}/static circular_hole.toml >> ${TEMP_TEST_RESULTS}/convergence_2D.log
-    rm circular_hole.msh
   done
   gmsh -2 bp1_ref.geo
   ${EXECUTABLE_DIR}/tandem bp1_ref_QD.toml \
