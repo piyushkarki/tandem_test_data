@@ -30,7 +30,7 @@ if [[ "$DIM" == "2" ]]; then
       --petsc -options_file mg_cheby.cfg
   done
   
-  for h in 0.03125 0.0625 0.125 0.5; do
+  for h in 0.0625 0.125 0.25 0.5; do
     gmsh -2 circular_hole.geo -setnumber h $h -order 9 -o circular_hole.msh
     ${EXECUTABLE_DIR}/static circular_hole.toml >> ${TEMP_TEST_RESULTS}/convergence_2D.log
     rm circular_hole.msh
@@ -55,8 +55,8 @@ elif [[ "$DIM" == "3" ]]; then
       --petsc -options_file mg_cheby.cfg
   done
 
-  for h in  0.0625 0.125 0.25 0.5; do
-    gmsh -3 spherical_hole.geo -setnumber h $h -order 4 -o spherical_hole.msh
+  for h in  0.125 0.25 0.5; do
+    gmsh -3 spherical_hole.geo -setnumber h $h -order 8 -o spherical_hole.msh
     ${EXECUTABLE_DIR}/static spherical_hole.toml >> ${TEMP_TEST_RESULTS}/convergence_3D.log
     rm spherical_hole.msh
   done
