@@ -55,7 +55,7 @@ elif [[ "$DIM" == "3" ]]; then
   done
 
   for h in  0.0625 0.125 0.25 0.5; do
-    gmsh -3 spherical_hole.geo -setnumber h $h -order 8 -o spherical_hole.msh
+    gmsh -3 spherical_hole.geo -setnumber h $h -order 4 -o spherical_hole.msh
     ${EXECUTABLE_DIR}/static spherical_hole.toml >> ${TEMP_TEST_RESULTS}/convergence_3D.log
   done
   
