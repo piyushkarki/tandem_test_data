@@ -1,7 +1,7 @@
 
-Cosine = {}
+VolumeTagging = {}
 
-function Cosine:new(o)
+function VolumeTagging:new(o)
     o = o or {}
     setmetatable(o, self)
     self.__index = self
@@ -9,7 +9,7 @@ function Cosine:new(o)
 end
 
 
-function Cosine:mu(x, y, tag)
+function VolumeTagging:mu(x, y, tag)
     local _tag = math.floor(tag)
     local _mu = 1.0
     if _tag == 1 then
@@ -24,27 +24,27 @@ function Cosine:mu(x, y, tag)
     return _mu
 end
 
-function Cosine:lam(x, y)
+function VolumeTagging:lam(x, y)
     return 2.0
 end
 
-function Cosine:force(x, y)
+function VolumeTagging:force(x, y)
     return 5.0*math.pi^2*math.cos(math.pi*x)*math.cos(math.pi*y),
           -3.0*math.pi^2*math.sin(math.pi*x)*math.sin(math.pi*y)
 end
 
-function Cosine:solution(x, y)
+function VolumeTagging:solution(x, y)
     return math.cos(math.pi * x) * math.cos(math.pi * y), 0
 end
 
-function Cosine:solution_jacobian(x, y)
+function VolumeTagging:solution_jacobian(x, y)
     return -math.pi * math.sin(math.pi * x) * math.cos(math.pi * y),
            -math.pi * math.cos(math.pi * x) * math.sin(math.pi * y),
             0, 0
 end
 
-function Cosine:boundary(x, y)
+function VolumeTagging:boundary(x, y)
     return self:solution(x, y)
 end
 
-cosine = Cosine:new()
+volumeTagging = VolumeTagging:new()

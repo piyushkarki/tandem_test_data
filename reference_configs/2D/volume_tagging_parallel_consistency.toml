@@ -1,6 +1,6 @@
-mesh_file = "criscros-regions-diri.msh"
+mesh_file = "volume_tagging_parallel_consistency.msh"
 type = "elasticity"
-lib = "cosine.lua"
-scenario = "cosine"
+lib = "volume_tagging_parallel_consistency.lua"
+scenario = "volumeTagging"
 
 
