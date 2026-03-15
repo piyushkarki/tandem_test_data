@@ -38,6 +38,13 @@ if [[ "$DIM" == "2" ]]; then
     gmsh -2 circular_hole.geo -setnumber h $h -order 8 -o circular_hole.msh
     ${EXECUTABLE_DIR}/static circular_hole.toml >> ${TEMP_TEST_RESULTS}/convergence_2D.log
   done
+
+  gmsh -2 volume_tagging_parallel_consistency.geo
+  for i in 1 2 4 8; do
+    mpirun --oversubscribe -n $i ${EXECUTABLE_DIR}/static volume_tagging_parallel_consistency.toml --output ${TEMP_TEST_RESULTS}/parallel_volume_output2D_$i
+  done
+  rm volume_tagging_parallel_consistency.msh
+
   gmsh -2 bp1_ref.geo
   ${EXECUTABLE_DIR}/tandem bp1_ref_QD.toml \
     --petsc -options_file solver.cfg

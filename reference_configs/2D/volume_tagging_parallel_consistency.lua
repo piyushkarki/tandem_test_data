@@ -9,14 +9,14 @@ function Cosine:new(o)
 end
 
 
-function Cosine:mu(x, y, r)
-    local _r = math.floor(r)
+function Cosine:mu(x, y, tag)
+    local _tag = math.floor(tag)
     local _mu = 1.0
-    if _r == 1 then
+    if _tag == 1 then
       _mu = 1.0
-    elseif _r == 2 then
+    elseif _tag == 2 then
       _mu = 2.0
-    elseif _r == 3 then
+    elseif _tag == 3 then
       _mu = 3.0
     else
       _mu = 4.0
