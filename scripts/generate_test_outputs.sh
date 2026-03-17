@@ -43,6 +43,8 @@ if [[ "$DIM" == "2" ]]; then
     --petsc -options_file solver.cfg
   ${EXECUTABLE_DIR}/tandem bp1_ref_QDGreen.toml \
     --petsc -options_file solver.cfg
+  ${EXECUTABLE_DIR}/tandem bp1_ref_QDGreen_probe_comparison.toml \
+    --petsc -options_file solver.cfg
   rm circular_hole.msh
   rm bp1_ref.msh
 elif [[ "$DIM" == "3" ]]; then
