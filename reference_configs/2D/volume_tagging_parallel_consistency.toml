@@ -1,6 +1,0 @@
-mesh_file = "criscros-regions-diri.msh"
-type = "elasticity"
-lib = "cosine.lua"
-scenario = "cosine"
-
-
